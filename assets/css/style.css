@@ -1,5 +1,5 @@
 body{
-        background: url("https://i.ticketweb.com//i/venue/466555_Venue.jpg?v=2") no-repeat center center fixed; 
+        background: url("https://c0.wallpaperflare.com/preview/346/959/717/lcd-soundsystem-iphone-x.jpg") no-repeat center center fixed; 
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -10,5 +10,15 @@ body{
   text-align: center;
   background-color: gray;
   color: white;
+  border: teal;
+  border-width: 20px;
+  border-radius:10px ;
+  }
+  .container2{
+    background-image: linear-gradient(to left, violet, indigo, blue, green, orange, red); -webkit-background-clip: text;
+    color: white;
+    text-align: center; 
+    font-weight: bolder; 
+    font-size: larger;
   }
  
