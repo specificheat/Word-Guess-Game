@@ -1,4 +1,4 @@
-var bands = ["Timber Timbre", "Neon Indian", "Wilco", "fela Kuti", "Destroyer", "Beak", "liars", "Toro y Moi", "Grizzly Bear", "Deerhoof", "Radiohead", "Kauf", "Holy Ghost", "Warpaint", "Kurt Vile", "Joy Division", "Talking heads", "LCD Soundsystem", "CAN", "Prince"];
+var bands = ["timbertimbre", "neonindian", "wilco", "felakuti", "destroyer", "beak", "liars", "toroymoi", "grizzlybear", "deerhoof", "radiohead", "kauf", "holyghost", "warpaint", "kurtvile", "joydivision", "talkingheads", "lcdsoundsystem", "can", "prince"];
 
 //Empty variables to store values later
 var randomBand = "";
@@ -6,6 +6,7 @@ var lettersOfBand = []
 var blanks = 0;
 var blanksAndCorrect = [];
 var wrongGuess = [];
+
 
 //Counter Variables
 var wins = 0;
@@ -28,14 +29,18 @@ function Game() {
     }
 
     //showing the "_" within HTML
-    document.getElementById("currentword").innerHTML = "  " + blanksAndCorrect.join("  ");
-
+   // window.onload = function(){
+        //what();
+        //function what(){
+    document.getElementById("currentword").innerHTML = ` ${blanksAndCorrect.join(" ")}`;
+        };
+//}
     //console logging 
-    console.log(randomWord);
-    console.log(lettersOfWord)
+    console.log(randomBand);
+    console.log(lettersOfBand)
     console.log(blanks)
     console.log(blanksAndCorrect)
-}
+//}
 function reset() {
     guessesRemaining = 9;
     wrongGuess = [];
@@ -44,28 +49,31 @@ function reset() {
 }
 //If/Else, to see if letter selected matches random word
 function checkLetters(letter) {
-    var letterInWord = false;
+    var letterInBand = false;
     //if the generated randomword is equal to the letter entered... then variable is true
     for (var i = 0; i < blanks; i++) {
         if (randomBand[i] == letter) {
-            letterInWord = true;
+            letterInBand = true;
+            
         }
     }
     //if letterInWord (false)
-    if (letterInWord) {
+    if (letterInBand) {
         //check each letter to see if it matches word
         for (var i = 0; i < blanks; i++) {
             if (randomBand[i] == letter) {
                 blanksAndCorrect[i] = letter;
+                document.getElementById("currentword").innerHTML = blanksAndCorrect.join("");
             }
+
         }
     }
     //otherwise, push the incorrect guess in the wrong guesses section, and reduce remaining guesses
     else {
         wrongGuess.push(letter);
-        guessesRemaining--;
+        guessesRemaining --;
     }
-    console.log(blanksAndCorrect);
+   console.log(blanksAndCorrect);
 }
 
 function complete() {
@@ -73,23 +81,28 @@ function complete() {
 
     //if WON...then alert, play audio, display image and reset new round
     if (lettersOfBand.toString() == blanksAndCorrect.toString()) {
+        document.getElementById("band").innerHTML = `${randomBand}`;
         wins++;
-        aud()
         reset()
         //display wins on screen
-        document.getElementById("winstracker").innerHTML = " " + wins;
+        document.getElementById("winstracker").innerHTML = `${wins}`;
 
         //if LOST...then alert and reset new round
     } else if (guessesRemaining === 0) {
+        
         losses++;
         reset()
-        document.getElementById("image").src = "./assets/images/try-again.png"
-        document.getElementById("losstracker").innerHTML = " " + losses;
+        //window.onload = function(){
+            //what();
+            //function what(){
+        //document.getElementById("image").src = "./assets/images/try-again.png"
+        document.getElementById("losstracker").innerHTML = `${losses}`;
+            }
     }
     //display losses on screen && guesses remaining countdown
-    document.getElementById("currentword").innerHTML = "  " + blanksAndCorrect.join(" ");
+    document.getElementById("currentword").innerHTML = `${blanksAndCorrect.join(" ")}`;
     document.getElementById("guessesremaining").innerHTML = " " + guessesRemaining;
-}
+//}
 
 Game()
 
@@ -104,112 +117,6 @@ document.onkeyup = function (event) {
     console.log(guesses);
 
     //display/store incorrect letters on screen
-    document.getElementById("playerguesses").innerHTML = "  " + wrongGuess.join(" ");
+    document.getElementById("playerguesses").innerHTML = `${wrongGuess.join(" ")}`;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//};
