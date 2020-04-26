@@ -85,7 +85,7 @@ function complete() {
 
         
     } else if (guessesRemaining === 0) {
-        document.getElementById("band").innerHTML = 'maybe try again, or take a nap';
+        document.getElementById("band").innerHTML = 'Maybe try again, or take a nap.';
         losses++;
         reset()
         
